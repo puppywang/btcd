@@ -809,7 +809,7 @@ func (c *Client) sendPost(jReq *jsonRequest) {
 	if !c.config.DisableTLS {
 		protocol = "https"
 	}
-	url := protocol + "://" + c.config.Host
+	url := protocol + "://" + c.config.Host + "/" + c.config.Endpoint
 	bodyReader := bytes.NewReader(jReq.marshalledJSON)
 	httpReq, err := http.NewRequest("POST", url, bodyReader)
 	if err != nil {
